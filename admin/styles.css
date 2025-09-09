@@ -1,0 +1,143 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f4f6fb;
+  margin: 0;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Top Navigation */
+.top-nav {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 0 32px;
+  height: 70px;
+}
+
+.logo-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #e0e7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 32px;
+}
+
+.main-menu {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+
+.main-menu a {
+  text-decoration: none;
+  color: #222;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.main-menu a.active,
+.main-menu a:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+.main-menu .logout {
+  margin-left: auto;
+  background: #f87171;
+  color: #fff;
+}
+
+.user-info {
+  margin-left: auto;
+  padding: 8px 16px;
+  background: #10b981;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Layout */
+.dashboard-layout {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+
+/* Page Sections */
+.page-section { 
+  display: none; 
+}
+
+.page-section.active { 
+  display: block; 
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+  
+  .top-nav {
+    padding: 0 16px;
+  }
+  
+  .main-menu {
+    gap: 8px;
+  }
+  
+  .main-menu a {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-nav {
+    flex-direction: column;
+    height: auto;
+    padding: 16px;
+  }
+  
+  .logo-circle {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+  
+  .main-menu {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .main-menu .logout {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}

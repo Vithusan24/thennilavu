@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="sidebar.css"/>
+  <link rel="stylesheet" href="maincontent.css"/>
+  <link rel="stylesheet" href="tables.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="logo-circle">Logo</div>
+    <nav class="main-menu">
+      <a href="#" class="logout">Logout</a>
+    </nav>
+  </header>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="matrimony-name">Matrimony Name</div>
+      <ul class="sidebar-menu">
+        <li><a href="members.php" class="sidebar-link active">Manage members</a></li>
+        <li><a href="call-management.php" class="sidebar-link">Call management</a></li>
+        <li><a href="user-message-management.php" class="sidebar-link">User message management</a></li>
+        <li><a href="review-management.php" class="sidebar-link">Review management</a></li>
+        <li><a href="transaction-management.php" class="sidebar-link">Transaction management</a></li>
+        <li><a href="packages-management.php" class="sidebar-link">Packages management</a></li>
+        <li><a href="blog-management.php" class="sidebar-link">Blog management</a></li>
+        <li><a href="total-earnings.php" class="sidebar-link">Total earnings</a></li>
+        <li><a id="staffLink" href="staff.php" class="sidebar-link">Staff management</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="welcome-section">
+        <h1>Welcome to Matrimony Admin Panel</h1>
+        <p>Select a section from the sidebar or use the top navigation to manage different aspects of your matrimony platform.</p>
+        <div class="quick-stats">
+          <div class="stat-card">
+            <h3>Total Members</h3>
+            <p>1,234</p>
+          </div>
+          <div class="stat-card">
+            <h3>Active Packages</h3>
+            <p>45</p>
+          </div>
+          <div class="stat-card">
+            <h3>Recent Transactions</h3>
+            <p>89</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // Check authentication on main page
+    document.addEventListener('DOMContentLoaded', function() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      if (!isLoggedIn) {
+        window.location.href = 'login.html';
+      } else {
+        // Force update user info
+        forceUpdateUserInfo();
+      }
+    });
+  </script>
+</body>
+</html>

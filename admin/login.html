@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Matrimony Admin Panel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-header {
+      margin-bottom: 2rem;
+    }
+
+    .login-header h1 {
+      color: #1f2937;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .login-header p {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      color: #374151;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+
+    .login-btn {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.875rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .login-btn:hover {
+      background: #2563eb;
+    }
+
+    .demo-credentials {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #f8fafc;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .demo-credentials h3 {
+      color: #1f2937;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .credential-group {
+      margin-bottom: 1rem;
+    }
+
+    .credential-group h4 {
+      color: #374151;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .credential-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem;
+      background: white;
+      border-radius: 6px;
+      margin-bottom: 0.25rem;
+    }
+
+    .credential-label {
+      color: #6b7280;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .credential-value {
+      color: #1f2937;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: monospace;
+    }
+
+    .error-message {
+      color: #ef4444;
+      font-size: 0.875rem;
+      margin-top: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-header">
+      <h1>Welcome Back</h1>
+      <p>Sign in to your Matrimony Admin Panel</p>
+    </div>
+
+    <form class="login-form" id="loginForm">
+      <div class="form-group">
+        <label for="userType">Login Type</label>
+        <select id="userType" name="userType" required>
+          <option value="">Select login type</option>
+          <option value="admin">Admin</option>
+          <option value="staff">Staff</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required>
+      </div>
+
+      <button type="submit" class="login-btn">
+        <i class="fas fa-sign-in-alt"></i> Sign In
+      </button>
+
+      <div class="error-message" id="errorMessage"></div>
+    </form>
+
+    <!-- <div class="demo-credentials">
+      <h3>Demo Credentials</h3> -->
+      
+      <!-- <div class="credential-group">
+        <h4>Admin Login</h4>
+        <div class="credential-item">
+          <span class="credential-label">Username:</span>
+          <span class="credential-value">admin</span>
+        </div>
+        <div class="credential-item">
+          <span class="credential-label">Password:</span>
+          <span class="credential-value">admin123</span>
+        </div>
+      </div>
+
+      <div class="credential-group">
+        <h4>Staff Login</h4>
+        <div class="credential-item">
+          <span class="credential-label">Username:</span>
+          <span class="credential-value">staff</span>
+        </div>
+        <div class="credential-item">
+          <span class="credential-label">Password:</span>
+          <span class="credential-value">staff123</span>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const userType = document.getElementById('userType').value;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('errorMessage');
+      
+      // Dummy credentials
+      const credentials = {
+        admin: { username: 'admin', password: 'admin123' },
+        staff: { username: 'staff', password: 'staff123' }
+      };
+      
+      // Check if user type is selected
+      if (!userType) {
+        showError('Please select a login type');
+        return;
+      }
+      
+      // Check credentials
+      if (credentials[userType] && 
+          username === credentials[userType].username && 
+          password === credentials[userType].password) {
+        
+        // Store user info in localStorage
+        localStorage.setItem('userType', userType);
+        localStorage.setItem('username', username);
+        localStorage.setItem('isLoggedIn', 'true');
+        
+        // Redirect to dashboard
+        window.location.href = 'dashboard.html';
+      } else {
+        showError('Invalid credentials. Please check your username and password.');
+      }
+    });
+    
+    function showError(message) {
+      const errorMessage = document.getElementById('errorMessage');
+      errorMessage.textContent = message;
+      errorMessage.style.display = 'block';
+      
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+      }, 3000);
+    }
+    
+    // Auto-fill credentials for demo
+    document.getElementById('userType').addEventListener('change', function() {
+      const userType = this.value;
+      const username = document.getElementById('username');
+      const password = document.getElementById('password');
+      
+      if (userType === 'admin') {
+        username.value = 'admin';
+        password.value = 'admin123';
+      } else if (userType === 'staff') {
+        username.value = 'staff';
+        password.value = 'staff123';
+      } else {
+        username.value = '';
+        password.value = '';
+      }
+    });
+  </script>
+</body>
+</html> 
